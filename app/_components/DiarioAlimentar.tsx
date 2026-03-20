@@ -1,6 +1,7 @@
 "use client";
 
-import { Camera, Loader2 } from "lucide-react";
+import { Camera, History, Loader2 } from "lucide-react";
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 
 type Macro = { p: number; c: number; g: number };
@@ -92,10 +93,21 @@ export default function DiarioAlimentar() {
   return (
     <div className="space-y-6">
       <header className="space-y-2">
-        <h1 className="text-2xl font-semibold">Diário Alimentar</h1>
-        <p className="text-zinc-400">
-          Tire uma foto da refeição e deixe o Gemini estimar peso e macros.
-        </p>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold">Diário Alimentar</h1>
+            <p className="text-zinc-400">
+              Tire uma foto da refeição e deixe o Gemini estimar peso e macros.
+            </p>
+          </div>
+          <Link
+            href="/historico"
+            className="rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm font-medium text-zinc-300 hover:bg-zinc-700 inline-flex items-center gap-2"
+          >
+            <History className="h-4 w-4" />
+            Histórico
+          </Link>
+        </div>
       </header>
 
       <section className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4">
